@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Messages</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Messages</h1>
+    <% messages.forEach((message)=>{ %>
+        <h3><%= message.user %></h3>
+        <h5><%= message.added %></h5>
+        <p><em><%= message.text %></em></p><br>
+    <% }); %>
+    <input type="button" id="newMessage" value="New Message">
+  
+      <script>
+        document.getElementById("newMessage").onclick = function(){
+          window.location.pathname = '/new';
+        }
+      </script>
   </body>
 </html>
